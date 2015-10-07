@@ -1,4 +1,6 @@
-# Cordova Windows Phone (Universal) WNS Azure Notifications Hub Demo
+# Cordova Windows Phone (Universal) WNS Azure Notifications Hub with Tags Demo
+
+*Note that at the moment tags only work with Windows devices but iOS and Android tag support will be added shortly to the plugin*
 
 ##Run this demo
 ###1. Create a Notification Hub
@@ -18,8 +20,10 @@ and take note of the "DefaultListenSharedAccessSignature" and "DefaultFullShared
 			- Package Name MUST be the "Name" attribute of your application identity you got in the store in the step above.
 			- Open the config.xml in a text editor and change "vs:publisherId" attribute to your application identity you got in the store in the step above (include the "CN=" text).
 - Change the "Solution Platforms" dropdown to "Windows Phone (Universal)".
-- Opn www/scripts/index.js set the value of the "connectionString" to the "DefaultListenSharedAccessSignature" connection string above and set the "notificationHubPath" variable
+- Open www/scripts/index.js set the value of the "connectionString" to the "DefaultListenSharedAccessSignature" connection string above and set the "notificationHubPath" variable
 to the name of your notifcation hub from above.
+- You can also change the name of your notification hub (defaults to "test") by changing the "notificationHubPath" variable.
+- You can also change the tags you will register for (defaults to "tag_a", "tag_b", "tab_c") by changing the "tags" variable.
 
 ###3. Update the Notification Hub WNS
 Open your notification hub in the Windows Azure portal. Change to the configure tab and in the "windows notification settings" set PACKAGE SID to the value of your app in step 2 and
@@ -56,15 +60,7 @@ and take note of the "DefaultListenSharedAccessSignature" and "DefaultFullShared
 	- Change the "Solution Platforms" dropdown to "Windows Phone (Universal)" and Build the project. This will add "Windows" as a platform.
 	- Open the config.xml in a text editor and find the section "vs:platformSpecificValues". Add "vs:publisherId" as a child element of "vs:platformSpecificWidget" and set this to the "Publisher" attribute of your application identity you got in the store in the step above (include the "CN=" text).
 	- Add an element as follows: <preference name="WindowsToastCapable" value="true" />
-- Close config.xml and click on it again to open the visual editor. Change to "Plugins", click "Custom" and check the "Git" option. Enter the following repository https://github.com/sgrebnov/cordova-plugin-azure-notificationhub.git and click "Add".
-
-	>There is an issue with this plugin as it stands with VS2015. You must change as follows. In plugins/msopentech.azure.NotificationHub/src/windows8/NotificationHubProxy.js, change 
-	>
-	>require("cordova/windows8/commandProxy").add("NotificationHub", module.exports);
-	>
-	>   to 
-	>
-	>require("cordova/exec/proxy").add("NotificationHub", module.exports);
+- Close config.xml and click on it again to open the visual editor. Change to "Plugins", click "Custom" and check the "Git" option. Enter the following repository https://github.com/ParamountVentures/cordova-plugin-azure-notificationhub.git and click "Add".
 
 - Open index.js in the scrips folder and add the following code at the bottom of the onDeviceReady() method (setting connectionString and notificationHubPath):
 

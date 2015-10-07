@@ -1,5 +1,7 @@
-Windows Azure Notification Hubs plugin for Apache Cordova
+Windows Azure Notification Hubs with Tags plugin for Apache Cordova
 ==================================
+**Note that tags support is currently only working for Windows (Windows Phone 8+, Windows Universal etc) - other platforms need a small bit of work that should be done soon.**
+
 Exposes Windows Azure [Notification Hubs](http://www.windowsazure.com/en-us/services/notification-hubs/) functionality as Apache Cordova Plugin. Support of Windows8, Windows Phone8, iOS and Android.
 
 

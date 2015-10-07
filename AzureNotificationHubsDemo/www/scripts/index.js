@@ -2,6 +2,7 @@
 // http://go.microsoft.com/fwlink/?LinkID=397704
 // To debug code on page load in Ripple or on Android devices/emulators: launch your app, set breakpoints, 
 // and then run "window.location.reload()" in the JavaScript Console.
+
 (function () {
     "use strict";
 
@@ -14,18 +15,24 @@
         
         // TODO: Cordova has been loaded. Perform any initialization that requires Cordova here.
         var connectionString = "";
-        var notificationHubPath = "";
+        var notificationHubPath = "test";
+        var tags = ["tag_a", "tag_b", "tab_c"];
 
-        var hub = new WindowsAzure.Messaging.NotificationHub(notificationHubPath, connectionString);
+        try {
+            var hub = new WindowsAzure.Messaging.NotificationHub(notificationHubPath, connectionString);
 
+            hub.registerApplicationAsync(tags).then(function (result) {
+                console.log("Registration successful: " + result.registrationId);
+            });
 
-        hub.registerApplicationAsync().then(function (result) {
-            console.log("Registration successful: " + result.registrationId);
-        });
-
-        hub.onPushNotificationReceived = function (msg) {
-            console.log('onPushNotificationReceived:' + JSON.stringify(msg));
-        };
+            hub.onPushNotificationReceived = function (msg) {
+                console.log('onPushNotificationReceived:' + JSON.stringify(msg));
+            };
+        } catch(e)
+        {
+            alert(e);
+            console.log(e);
+        }
     };
 
     function onPause() {

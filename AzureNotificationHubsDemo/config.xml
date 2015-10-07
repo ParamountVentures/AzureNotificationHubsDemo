@@ -110,5 +110,5 @@
       <vs:publisherId>CN=079B13C7-099F-40C5-96AD-2524929B7E87</vs:publisherId>
     </vs:platformSpecificWidget>
   </vs:platformSpecificValues>
-  <vs:plugin name="msopentech.azure.NotificationHub" version="0.0.1" src="https://github.com/sgrebnov/cordova-plugin-azure-notificationhub.git" />
+  <vs:plugin name="msopentech.azure.NotificationHub" version="0.0.1" src="https://github.com/ParamountVentures/cordova-plugin-azure-notificationhub.git" />
 </widget>

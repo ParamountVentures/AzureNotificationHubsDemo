@@ -10,7 +10,7 @@
     "msopentech.azure.NotificationHub": {
         "source": {
             "type": "git",
-            "url": "https://github.com/sgrebnov/cordova-plugin-azure-notificationhub.git",
+            "url": "https://github.com/ParamountVentures/cordova-plugin-azure-notificationhub.git",
             "subdir": "."
         },
         "is_top_level": true,
