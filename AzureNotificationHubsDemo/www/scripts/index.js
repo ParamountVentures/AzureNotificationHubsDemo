@@ -17,9 +17,10 @@
         var connectionString = "";
         var notificationHubPath = "test";
         var tags = ["tag_a", "tag_b", "tab_c"];
+        var senderId = 12345;
 
         try {
-            var hub = new WindowsAzure.Messaging.NotificationHub(notificationHubPath, connectionString);
+            var hub = new WindowsAzure.Messaging.NotificationHub(notificationHubPath, connectionString, senderId);
 
             hub.registerApplicationAsync(tags).then(function (result) {
                 console.log("Registration successful: " + result.registrationId);
